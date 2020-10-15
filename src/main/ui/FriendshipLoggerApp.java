@@ -254,7 +254,7 @@ public class FriendshipLoggerApp {
         }
     }
 
-    //MODIFIES:this
+    //MODIFIES:this, f
     //changes the birthday or interest list of a friend in the user's friends list based on the input they provide.
     private void editValidFriend(Friend f) {
         String userInput = null;
@@ -285,7 +285,7 @@ public class FriendshipLoggerApp {
         System.out.println("2 < Edit Interests");
     }
 
-    //MODIFIES: this
+    //MODIFIES: this, f
     //EFFECTS: edits a friend's interests differently based on user input
     private void editFriendInterests(Friend f) {
         String userinput;
@@ -306,7 +306,7 @@ public class FriendshipLoggerApp {
     }
 
     //helper method of EditFriendInterests()
-    //MODIFIES: this
+    //MODIFIES: this, f
     //EFFECTS: adds an interest specified by the user to a friend's interests
     private void addFriendInterestUI(Friend f) {
         String userInput = "";
@@ -326,7 +326,7 @@ public class FriendshipLoggerApp {
     }
 
     //helper method of editFriendsInterests(Friend f)
-    //MODIFIES:this
+    //MODIFIES:this, f
     //EFFECTS: removes a friend's interest specified by user from a friend's interests.
     private void removeFriendInterestUI(Friend f) {
         String userInput = "";
