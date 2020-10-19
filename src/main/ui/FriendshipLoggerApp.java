@@ -336,14 +336,14 @@ public class FriendshipLoggerApp {
             System.out.println("Please enter the interest you would like to remove for "
                     + f.getName() + ".");
             System.out.print("Interest: ");
-            userInput = input.nextLine();
+            userInput = input.nextLine().toLowerCase();
             if (f.getInterests().containsInterest(userInput)) {
                 f.removeInterest(userInput);
                 System.out.println("Interest sucessfully removed for " + f.getName());
                 validRequest = true;
             } else {
                 System.out.println("Interest was unsuccessfully removed for " + f.getName()
-                        + "because it is not in the list of intersts.");
+                        + " because it is not in the list of intersts.");
                 System.out.println("Please try again");
             }
         }
