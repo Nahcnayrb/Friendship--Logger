@@ -317,7 +317,7 @@ public class FriendshipLoggerApp {
         userInput = input.nextLine().toLowerCase();
         if (userInput.trim().length() == 0) {
             System.out.println("Interest was unsuccessfully added because an interest should not be empty");
-        } else if ((!(userInterests.containsInterest(userInput)))) {
+        } else if ((!(f.getInterests().containsInterest(userInput)))) {
             f.addInterest(userInput);
             System.out.println("Interest sucessfully added for " + f.getName() + ".");
         } else {
