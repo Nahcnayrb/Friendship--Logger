@@ -30,3 +30,8 @@ helpful especially in situations where I'm planning for birthday gifts in advanc
  - I want to be able to select a friend and view our common interests
  - I want to be able to select a friend and view a summary showing the important things about them such as their birthdays or
  their interests.
+ 
+ - I want to be able to save my Friends List(friends' entries, birthdays, interests)
+ - I want to be able to save my entered Interests 
+ - I want to have the choice to load my previously saved Friends List and my Interests when I start the application
+ - I want to be reminded and be able to save my data as I exit the application
