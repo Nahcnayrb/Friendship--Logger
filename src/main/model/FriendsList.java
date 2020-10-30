@@ -1,18 +1,36 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // Represents a list of friends which cannot contain any duplicates,
 // meaning two friends with identical names cannot be in the same friendsList.
-public class FriendsList {
-    public List<Friend> friends;
+public class FriendsList implements Writable {
+    private List<Friend> friends;
+    private String username;
+    private InterestList userInterests;
+
 
 
 
     //EFFECTS: creates a new empty friends list
     public FriendsList() {
         friends = new ArrayList<>();
+    }
+
+    public FriendsList(String name, InterestList interests) {
+        username = name;
+        friends = new ArrayList<>();
+        userInterests = interests;
+
+    }
+
+    public void addAFriend(Friend f) {
+        friends.add(f);
 
     }
 
@@ -56,4 +74,53 @@ public class FriendsList {
         }
         return friendIndex;
     }
+
+    //EFFECTS: returns the username associated with the friends list
+    public String getName() {
+        return username;
+    }
+
+    //returns the interests list associated with the friends list
+    public InterestList getUserInterests() {
+        return userInterests;
+    }
+
+    //returns the list of friends associated with the friends list
+    public List<Friend> getFriends() {
+        return friends;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("friends", friendsToJson());
+        json.put("username", username);
+        json.put("userinterests", userInterestsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray friendsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Friend f : friends) {
+            jsonArray.put(f.toJson());
+        }
+
+        return jsonArray;
+    }
+
+    // EFFECTS: returns user's interests in this friends list as a JSON array
+    private JSONArray userInterestsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Interest i : userInterests.getListOfInterests()) {
+            jsonArray.put(i.toJson());
+        }
+
+        return jsonArray;
+    }
+
+
+
 }

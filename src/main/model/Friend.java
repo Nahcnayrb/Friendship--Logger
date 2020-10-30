@@ -1,7 +1,11 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 //Represents a friend with information of name, birthday, and interests
-public class Friend {
+public class Friend implements Writable {
     private String name;
     private String birthday = "Unknown";
     private InterestList interests;
@@ -11,6 +15,12 @@ public class Friend {
     public Friend(String name) {
         this.name = name;
         interests = new InterestList();
+    }
+
+    public Friend(String name, String bday, InterestList il) {
+        this.name = name;
+        this.birthday = bday;
+        interests = il;
     }
 
     //REQUIRES: string must to be in format "MM/DD" where  01 <= MM <= 12 and 01 <= DD <= 31
@@ -68,4 +78,25 @@ public class Friend {
     public String getBirthday() {
         return birthday;
     }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("birthday", birthday);
+        json.put("interests", interestsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns friend's interests as a JSON array
+    private JSONArray interestsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Interest i : interests.getListOfInterests()) {
+            jsonArray.put(i.toJson());
+        }
+
+        return jsonArray;
+    }
+
 }

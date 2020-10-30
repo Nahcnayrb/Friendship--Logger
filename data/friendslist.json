@@ -1,0 +1,23 @@
+{
+    "userinterests": [
+        {"interest": "please"},
+        {"interest": "this"},
+        {"interest": "i am so happy"}
+    ],
+    "friends": [
+        {
+            "birthday": "11/11",
+            "name": "john",
+            "interests": [
+                {"interest": "fishing"},
+                {"interest": "smiling"}
+            ]
+        },
+        {
+            "birthday": "11/01",
+            "name": "sasha",
+            "interests": []
+        }
+    ],
+    "username": "Bryan's friends list"
+}

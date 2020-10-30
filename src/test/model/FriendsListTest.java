@@ -19,23 +19,61 @@ public class FriendsListTest {
     public void testFriendsList() {
 
         assertEquals(0,f.getSize());
-
-
     }
+
+    @Test
+    public void testFriendsListMultipleInputs() {
+
+        InterestList il = new InterestList();
+        il.insertInterest("lol");
+        FriendsList fr = new FriendsList("Bob's friends list", il);
+        assertEquals(il.getSize(), fr.getUserInterests().getSize());
+        assertEquals(0,f.getSize());
+        assertTrue(fr.getName().equals("Bob's friends list"));
+    }
+
+
 
     @Test
     public void testAddAFriend() {
         f.addAFriend("Bob Vance");
 
         assertEquals(1,f.getSize());
+        assertEquals(1,f.getFriends().size());
+        assertTrue(f.getFriend(0).getName().equals("Bob Vance"));
+
+
+    }
+
+    @Test
+    public void testAddAFriendInputFriend() {
+        Friend fri = new Friend("Bob Vance");
+        f.addAFriend(fri);
+
+        assertEquals(1,f.getSize());
         assertTrue(f.getFriend(0).getName().equals("Bob Vance"));
 
     }
+
+
 
     @Test
     public void testAddAFriendMany() {
         f.addAFriend("Bob Vance");
         f.addAFriend("Roger Rabbit");
+
+        assertEquals(2,f.getSize());
+        assertTrue(f.getFriend(0).getName().equals("Bob Vance"));
+        assertTrue(f.getFriend(1).getName().equals("Roger Rabbit"));
+
+    }
+
+    @Test
+    public void testAddAFriendManyInputFriend() {
+        Friend fri1 = new Friend("Bob Vance");
+        Friend fri2 = new Friend("Roger Rabbit");
+        f.addAFriend(fri1);
+        f.addAFriend(fri2);
 
         assertEquals(2,f.getSize());
         assertTrue(f.getFriend(0).getName().equals("Bob Vance"));

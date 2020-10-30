@@ -22,8 +22,15 @@ class FriendTest {
         assertTrue(fr.getName().equals("Leonardo Dicaprio"));
         assertEquals(0,fr.getInterestsSize());
 
+    }
 
-
+    @Test
+    public void testFriendMultipleInputs() {
+        InterestList il = new InterestList();
+        Friend frMultiple = new Friend("Bob Unicorn", "11/11", il);
+        assertTrue(frMultiple.getName().equals("Bob Unicorn"));
+        assertEquals(il.getSize(), frMultiple.getInterestsSize());
+        assertTrue(frMultiple.getBirthday().equals("11/11"));
     }
 
     @Test

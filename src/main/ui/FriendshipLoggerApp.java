@@ -3,27 +3,36 @@ package ui;
 import model.Friend;
 import model.FriendsList;
 import model.InterestList;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 //Friendship Logger Application
 public class FriendshipLoggerApp {
+    private static final String JSON_STORE = "./data/friendslist.json";
     private InterestList userInterests;
     private FriendsList userFriends;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
 
-    //EFFECTS: runs the Friendship Logger Application
+    //EFFECTS: constructs userInterests and friends list and runs the Friendship Logger Application
     public FriendshipLoggerApp() {
+        userInterests = new InterestList();
+        userFriends = new FriendsList("Bryan's friends list", userInterests);
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runLogger();
     }
 
 
     //MODIFIES: this
-    //EFFECTS: initializes user interests list and friends list along with processing inputs from the user.
+    //EFFECTS: inputs from the user are processed.
     private void runLogger() {
-        userInterests = new InterestList();
-        userFriends = new FriendsList();
         input = new Scanner(System.in);
 
         greet();
@@ -38,7 +47,6 @@ public class FriendshipLoggerApp {
     }
 
 
-
     //MODIFIES: this
     //EFFECTS: removes a user's interest if it is in the user's interest list
     private void removeUserInterestUI() {
@@ -46,8 +54,8 @@ public class FriendshipLoggerApp {
         System.out.print("Interest: ");
         input.nextLine();
         String userInput = input.nextLine().toLowerCase();
-        if (userInterests.containsInterest(userInput)) {
-            userInterests.removeInterest(userInput);
+        if (userFriends.getUserInterests().containsInterest(userInput)) {
+            userFriends.getUserInterests().removeInterest(userInput);
             System.out.println("Interest successfully removed");
         } else {
             System.out.println("Interest was unsuccessfully removed because it is not in the list of interests.");
@@ -65,8 +73,8 @@ public class FriendshipLoggerApp {
         userInput = input.nextLine().toLowerCase();
         if (userInput.trim().length() == 0) {
             System.out.println("Interest was unsuccessfully added because an interest should not be empty.");
-        } else if ((!(userInterests.containsInterest(userInput)))) {
-            userInterests.insertInterest(userInput);
+        } else if ((!(userFriends.getUserInterests().containsInterest(userInput)))) {
+            userFriends.getUserInterests().insertInterest(userInput);
             System.out.println("Interest sucessfully added");
         } else {
             System.out.println("Interest was unsuccessfully added because it's already documented.");
@@ -76,10 +84,10 @@ public class FriendshipLoggerApp {
 
     //EFFECTS: displays the user's inputted interests so far
     private void viewMyInterestsUI() {
-        if (userInterests.getSize() == 0) {
+        if (userFriends.getUserInterests().getSize() == 0) {
             System.out.println("You currently do not have any interests documented");
         } else {
-            System.out.println("Your Interests: " + userInterests.toString());
+            System.out.println("Your Interests: " + userFriends.getUserInterests().toString());
         }
     }
 
@@ -106,6 +114,8 @@ public class FriendshipLoggerApp {
         System.out.println("3 > Edit my Friends List");
         System.out.println("4 > View my Friends List");
         System.out.println("5 > Quit Application");
+        System.out.println("6 > Save my data so far");
+        System.out.println("7 > Load my data from before");
     }
 
     //helper function of mainMenuLoop()
@@ -127,11 +137,43 @@ public class FriendshipLoggerApp {
 
         } else if (userinput.equals("5")) {
             exitLoop = true;
+        } else if (userinput.equals("6")) {
+            saveFriendsList();
+        } else if (userinput.equals("7")) {
+            loadFriendsList();
         } else {
             invalidInputWarning();
         }
 
         return exitLoop;
+    }
+
+    //copied from JsonSerializationDemo
+    //EFFECT: save friends list to file
+    private void saveFriendsList() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(userFriends);
+            jsonWriter.close();
+            System.out.println("Successfully saved " + userFriends.getName() + " to " + JSON_STORE + ".");
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE + ".");
+        }
+
+    }
+
+
+    //copied from JsonSerializationDemo
+    //MODIFIES: this
+    //EFFECT: loads friends list from file
+    private void loadFriendsList() {
+        try {
+            userFriends = jsonReader.read();
+            System.out.println("Successfully loaded " + userFriends.getName() + " from " + JSON_STORE + ".");
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE + ".");
+        }
+
     }
 
 
@@ -332,21 +374,19 @@ public class FriendshipLoggerApp {
         String userInput = "";
         boolean validRequest = false;
 
-        while (!validRequest) {
-            System.out.println("Please enter the interest you would like to remove for "
-                    + f.getName() + ".");
-            System.out.print("Interest: ");
-            userInput = input.nextLine().toLowerCase();
-            if (f.getInterests().containsInterest(userInput)) {
-                f.removeInterest(userInput);
-                System.out.println("Interest sucessfully removed for " + f.getName());
-                validRequest = true;
-            } else {
-                System.out.println("Interest was unsuccessfully removed for " + f.getName()
-                        + " because it is not in the list of intersts.");
-                System.out.println("Please try again");
-            }
+        System.out.println("Please enter the interest you would like to remove for "
+                + f.getName() + ".");
+        System.out.print("Interest: ");
+        userInput = input.nextLine().toLowerCase();
+        if (f.getInterests().containsInterest(userInput)) {
+            f.removeInterest(userInput);
+            System.out.println("Interest sucessfully removed for " + f.getName());
+            validRequest = true;
+        } else {
+            System.out.println("Interest was unsuccessfully removed for " + f.getName()
+                    + " because it is not in the list of intersts.");
         }
+
     }
 
 
@@ -386,8 +426,6 @@ public class FriendshipLoggerApp {
             System.out.println(userinput + " was removed successfully from your friends list");
         }
     }
-
-
 
 
     //EFFECTS: displays the options when in the menu of editMyInterests

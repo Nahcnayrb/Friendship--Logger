@@ -1,5 +1,9 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +11,7 @@ import java.util.List;
 //InterestList cannot store duplicates, meaning two interests with the same string cannot be in
 //the same InterestList.
 public class InterestList {
-    private List<String> listOfInterests;
+    private List<Interest> listOfInterests;
 
     //EFFECTS: creates an empty interest list
     public InterestList() {
@@ -18,15 +22,15 @@ public class InterestList {
     //MODIFIES: this
     //EFFECTS: inserts an interest into the list of interests if it's not already in the list
     public void insertInterest(String s) {
-        listOfInterests.add(s);
-
+        Interest interest = new Interest(s);
+        listOfInterests.add(interest);
     }
 
     //REQUIRES:The interest must already be an element in the interest list
     //MODIFIES: this
-    //EFFECTS: removes an interest from the list of interests if it is in the list
+    //EFFECTS: removes an interest from the list of interests if it is contained in the list
     public void removeInterest(String s) {
-        listOfInterests.remove(s);
+        listOfInterests.removeIf(i -> i.getInterest().equals(s));
     }
 
 
@@ -34,7 +38,7 @@ public class InterestList {
     public InterestList commonInterests(InterestList secondlist) {
         InterestList commonInterests = new InterestList();
         for (int i = 0; i < listOfInterests.size(); i++) {
-            String currentInterest = listOfInterests.get(i);
+            String currentInterest = listOfInterests.get(i).getInterest();
             if (secondlist.containsInterest(currentInterest)) {
                 commonInterests.insertInterest(currentInterest);
             }
@@ -45,7 +49,13 @@ public class InterestList {
 
     //EFFECTS: returns true if interest s is in the interest list
     public boolean containsInterest(String s) {
-        return listOfInterests.contains(s);
+        boolean cond = false;
+        for (Interest i: listOfInterests) {
+            if (i.getInterest().equals(s)) {
+                cond = true;
+            }
+        }
+        return cond;
     }
 
     //EFFECTS: returns the number of interests in interest list
@@ -59,11 +69,17 @@ public class InterestList {
         String result = "";
         for (int i = 0; i < getSize(); i++) {
             if (result.length() == 0) {
-                result = listOfInterests.get(i);
+                result = listOfInterests.get(i).getInterest();
             } else {
-                result += ", " + listOfInterests.get(i);
+                result += ", " + listOfInterests.get(i).getInterest();
             }
         }
         return result;
     }
+
+    //EFFECTS: returns the interest list
+    public List<Interest> getListOfInterests() {
+        return listOfInterests;
+    }
+
 }

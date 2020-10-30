@@ -3,6 +3,8 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -115,6 +117,17 @@ public class InterestListTest {
         in.insertInterest("Walking");
 
         assertTrue(in.toString().equals("League of Legends, Walking"));
+    }
+
+    @Test
+    public void testGetInterests() {
+        in.insertInterest("League of Legends");
+        in.insertInterest("Walking");
+
+        List<Interest> testInterestList = in.getListOfInterests();
+        assertEquals(2,in.getListOfInterests().size());
+        assertEquals(testInterestList.size(),in.getSize());
+
     }
 
 }

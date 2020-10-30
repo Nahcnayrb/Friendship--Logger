@@ -1,7 +1,8 @@
 package ui;
 
-import model.FriendsList;
 
+
+import model.FriendsList;
 import java.time.LocalDateTime;
 
 public class Main {

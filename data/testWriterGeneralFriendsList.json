@@ -1,0 +1,25 @@
+{
+    "userinterests": [
+        {"interest": "minecraft"},
+        {"interest": "walking"}
+    ],
+    "friends": [
+        {
+            "birthday": "10/10",
+            "name": "ethan",
+            "interests": [
+                {"interest": "flying"},
+                {"interest": "league of legends"}
+            ]
+        },
+        {
+            "birthday": "01/10",
+            "name": "cody",
+            "interests": [
+                {"interest": "dreaming"},
+                {"interest": "leaving the house"}
+            ]
+        }
+    ],
+    "username": "Johnny's friends list"
+}

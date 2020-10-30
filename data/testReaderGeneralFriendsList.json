@@ -1,0 +1,40 @@
+{
+    "userinterests": [
+      {
+          "interest": "league of legends"
+      },
+      {
+          "interest": "running"
+      }
+    ],
+
+    "friends": [
+      {
+          "name": "Tyler One",
+          "birthday": "12/10",
+          "interests": [
+              {
+                  "interest": "flying"
+              },
+              {
+                  "interest": "league of legends"
+              }
+          ]
+      },
+      {
+          "name": "Me MyselfandI",
+          "birthday": "01/01",
+          "interests": [
+              {
+                  "interest": "breathing air"
+              },
+              {
+                  "interest": "staying in my room"
+              }
+          ]
+      }
+    ],
+
+    "username": "Bryan's friends list"
+
+}
