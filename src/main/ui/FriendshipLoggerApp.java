@@ -228,11 +228,11 @@ public class FriendshipLoggerApp {
         friendMenuSelectionDisplay();
         userinput = input.next();
         if (userinput.equals("1")) {
-            if ((userInterests.commonInterests(f.getInterests())).getSize() == 0) {
+            if ((userFriends.getUserInterests().commonInterests(f.getInterests())).getSize() == 0) {
                 System.out.println("There are no common interests between you and " + f.getName() + ".");
             } else {
-                System.out.println("Common Interests between you and " + f.getName() + ":"
-                        + f.getInterests().commonInterests(userInterests));
+                System.out.println("Common Interests between you and " + f.getName() + ": "
+                        + f.getInterests().commonInterests(userFriends.getUserInterests()).toString());
             }
         } else if (userinput.equals("2")) {
             System.out.println(f.summary());

@@ -7,18 +7,28 @@
         {"interest": "go"},
         {"interest": "to"},
         {"interest": "bed"},
-        {"interest": "league of legends"}
+        {"interest": "league of legends"},
+        {"interest": "testing before i go to eat"}
     ],
     "friends": [
         {
             "birthday": "12/10",
             "name": "faker faker",
-            "interests": [{"interest": "runninglolxd"}]
+            "interests": [
+                {"interest": "runninglolxd"},
+                {"interest": "testing before i go to eat"},
+                {"interest": "league of legends"}
+            ]
         },
         {
             "birthday": "01/01",
             "name": "gg ez",
             "interests": [{"interest": "winning"}]
+        },
+        {
+            "birthday": "Unknown",
+            "name": "post malone",
+            "interests": [{"interest": "beer"}]
         }
     ],
     "username": "Bryan's friends list"

@@ -44,6 +44,7 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
+    //MODIFIES: fl, userInterestsList
     // EFFECTS: parses friendslist from JSON object and returns it
     private FriendsList parseFriendsList(JSONObject jsonObject) {
         String name = jsonObject.getString("username");
@@ -55,7 +56,7 @@ public class JsonReader {
         return fl;
     }
 
-    // MODIFIES: wr
+    // MODIFIES: fl
     // EFFECTS: parses friends from JSON object and adds them to friendslist
     private void addFriends(FriendsList fl, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("friends");
@@ -65,7 +66,6 @@ public class JsonReader {
         }
     }
 
-    //DONT KNOW NAME FOR THIS METHOD FIX LATER
     // MODIFIES: fl
     // EFFECTS: parses friend from JSON object and adds it to friendslist
     private void addFriend(FriendsList fl, JSONObject jsonObject) {
@@ -79,7 +79,7 @@ public class JsonReader {
     }
 
 
-    // MODIFIES: InterestsList
+    // MODIFIES: interests
     // EFFECTS: parses interest from JSON object and adds it to interests
     private void addInterests(InterestList interests, JSONArray jsonArray) {
 
