@@ -31,6 +31,6 @@ helpful especially in situations where I'm planning for birthday gifts in advanc
  - I want to be able to select a friend and view a summary showing the important things about them such as their birthdays or
  their interests.
  
- - I want to be able to save my Friends List(friend entries, friends' birthdays, friends' interests) 
+ - I want to be able to save my Friends List(friend entries, friends' birthdays, friends' interests, username, user interests) 
  - I want to have the choice to load my previously saved Friends List and my Interests when I start the application
  
