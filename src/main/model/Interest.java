@@ -3,6 +3,9 @@ package model;
 import org.json.JSONObject;
 import persistence.Writable;
 
+//Below method: ToJson, were developed with assistance from
+// JsonSerializationDemo (https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo)
+
 //represents an interest description represented by a string
 public class Interest implements Writable {
     private String interest;

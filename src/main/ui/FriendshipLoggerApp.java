@@ -20,6 +20,7 @@ public class FriendshipLoggerApp {
     private JsonReader jsonReader;
 
 
+    //method written based on JsonSerializationDemo (https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo)
     //EFFECTS: constructs userInterests and friends list and runs the Friendship Logger Application
     public FriendshipLoggerApp() {
         userInterests = new InterestList();
@@ -133,7 +134,7 @@ public class FriendshipLoggerApp {
             editMyFriendsListUI();
 
         } else if (userinput.equals("4")) {
-            viewMyFriendsListUI();
+            viewMyFriendsUI();
 
         } else if (userinput.equals("5")) {
             exitLoop = true;
@@ -148,7 +149,7 @@ public class FriendshipLoggerApp {
         return exitLoop;
     }
 
-    //copied from JsonSerializationDemo
+    //Method written based on JsonSerializationDemo (https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo)
     //EFFECT: save friends list to file
     private void saveFriendsList() {
         try {
@@ -163,7 +164,7 @@ public class FriendshipLoggerApp {
     }
 
 
-    //copied from JsonSerializationDemo
+    //Method written based on JsonSerializationDemo (https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo)
     //MODIFIES: this
     //EFFECT: loads friends list from file
     private void loadFriendsList() {
@@ -176,9 +177,34 @@ public class FriendshipLoggerApp {
 
     }
 
+    //EFFECTS: views different parts of the friends list based on user input
+    private void viewMyFriendsUI() {
+        System.out.println("What would you like to view about your friends list?");
+        String userinput = null;
+        viewFriendsMenuSelectionDisplay();
+        userinput = input.next();
+        if (userinput.equals("1")) {
+            System.out.println("Friends currently in your friends list: " + userFriends.toString());
+        } else if (userinput.equals("2")) {
+            viewAFriend();
+        } else {
+            invalidInputWarning();
+        }
+    }
 
+
+
+
+    //helper function of viewMyFriendsUI()
+    //EFFECTS: displays the options for viewing information about a friend
+    private void viewFriendsMenuSelectionDisplay() {
+        System.out.println("1 < View Friends List");
+        System.out.println("2 < View A Current Friend");
+    }
+
+    //helper function of viewMyFriendsUI(
     //EFFECTS: selects a friend in the friends list by inputting their name then viewing information about them.
-    private void viewMyFriendsListUI() {
+    private void viewAFriend() {
         String userInput = null;
         System.out.println("Enter the name of the friend you would like to view.");
         input.nextLine();
@@ -193,7 +219,7 @@ public class FriendshipLoggerApp {
 
     }
 
-    //helper function of viewMyFriendsListUI()
+    //helper function of viewAFriend()
     //EFFECTS: views different information about a specific friend which the information displayed
     //is different based on the user's input
     private void viewFriendUI(Friend f) {
@@ -355,7 +381,7 @@ public class FriendshipLoggerApp {
         boolean validInterest = false;
         System.out.println("What are " + f.getName() + "'s" + " hobbies and interests? "
                 + "Enter one thing they enjoy and press enter!");
-        System.out.print("Interest:");
+        System.out.print("Interest: ");
         userInput = input.nextLine().toLowerCase();
         if (userInput.trim().length() == 0) {
             System.out.println("Interest was unsuccessfully added because an interest should not be empty");

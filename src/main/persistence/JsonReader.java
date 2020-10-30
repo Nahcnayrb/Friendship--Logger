@@ -15,6 +15,7 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 //Copied from JsonSerializationDemo (https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo)
+
 // Represents a reader that reads workroom from JSON data stored in file
 public class JsonReader {
     private String source;
@@ -77,13 +78,6 @@ public class JsonReader {
         fl.addAFriend(friend);
     }
 
-//    private Friend parseFriend(JSONObject jsonObject) {
-//        InterestList friendInterests = new InterestList();
-//        JSONArray interests = jsonObject.getJSONArray("interests");
-//        addInterest(f,interests );
-//        Friend f = new Friend();
-//        return f;
-//    }
 
     // MODIFIES: InterestsList
     // EFFECTS: parses interest from JSON object and adds it to interests

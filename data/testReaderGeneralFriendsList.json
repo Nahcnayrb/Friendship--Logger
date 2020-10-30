@@ -10,8 +10,8 @@
 
     "friends": [
       {
-          "name": "Tyler One",
           "birthday": "12/10",
+          "name": "Tyler One",
           "interests": [
               {
                   "interest": "flying"
@@ -22,8 +22,8 @@
           ]
       },
       {
-          "name": "Me MyselfandI",
           "birthday": "01/01",
+          "name": "Me MyselfandI",
           "interests": [
               {
                   "interest": "breathing air"

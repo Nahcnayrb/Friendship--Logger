@@ -1,22 +1,24 @@
 {
     "userinterests": [
-        {"interest": "please"},
-        {"interest": "this"},
-        {"interest": "i am so happy"}
+        {"interest": "final"},
+        {"interest": "try"},
+        {"interest": "before"},
+        {"interest": "i"},
+        {"interest": "go"},
+        {"interest": "to"},
+        {"interest": "bed"},
+        {"interest": "league of legends"}
     ],
     "friends": [
         {
-            "birthday": "11/11",
-            "name": "john",
-            "interests": [
-                {"interest": "fishing"},
-                {"interest": "smiling"}
-            ]
+            "birthday": "12/10",
+            "name": "faker faker",
+            "interests": [{"interest": "runninglolxd"}]
         },
         {
-            "birthday": "11/01",
-            "name": "sasha",
-            "interests": []
+            "birthday": "01/01",
+            "name": "gg ez",
+            "interests": [{"interest": "winning"}]
         }
     ],
     "username": "Bryan's friends list"

@@ -4,6 +4,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writable;
 
+//Below methods: ToJson, interestsToJson were developed with assistance from
+// JsonSerializationDemo (https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo)
+
 //Represents a friend with information of name, birthday, and interests
 public class Friend implements Writable {
     private String name;
@@ -11,12 +14,14 @@ public class Friend implements Writable {
     private InterestList interests;
 
 
-    //EFFECTS: friend's name is set to given name and a new list of interests is created
+    //EFFECTS: creates a friend with the friend's name set to given name and a new list of interests is created
     public Friend(String name) {
         this.name = name;
         interests = new InterestList();
     }
 
+    //EFFECTS: creates a friend with their name is set to given name, birthday set to bday, and interests is set to
+    // given interests list
     public Friend(String name, String bday, InterestList il) {
         this.name = name;
         this.birthday = bday;

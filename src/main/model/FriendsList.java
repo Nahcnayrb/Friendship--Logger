@@ -7,6 +7,9 @@ import persistence.Writable;
 import java.util.ArrayList;
 import java.util.List;
 
+//Below methods: ToJson, friendsToJson, userInterestsToJson were developed with assistance from
+// JsonSerializationDemo (https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo)
+
 // Represents a list of friends which cannot contain any duplicates,
 // meaning two friends with identical names cannot be in the same friendsList.
 public class FriendsList implements Writable {
@@ -22,6 +25,8 @@ public class FriendsList implements Writable {
         friends = new ArrayList<>();
     }
 
+
+    //EFFECTS: creates a friends list with given name and user interests,
     public FriendsList(String name, InterestList interests) {
         username = name;
         friends = new ArrayList<>();
@@ -80,14 +85,27 @@ public class FriendsList implements Writable {
         return username;
     }
 
-    //returns the interests list associated with the friends list
+    //EFFECTS: returns the interests list associated with the friends list
     public InterestList getUserInterests() {
         return userInterests;
     }
 
-    //returns the list of friends associated with the friends list
+    //EFFECTS: returns the list of friends associated with the friends list
     public List<Friend> getFriends() {
         return friends;
+    }
+
+    //EFFECTS: returns the the list of friends in string form
+    public String toString() {
+        String result = "";
+        for (int i = 0; i < getSize(); i++) {
+            if (result.length() == 0) {
+                result = friends.get(i).getName();
+            } else {
+                result += ", " + friends.get(i).getName();
+            }
+        }
+        return result;
     }
 
     @Override

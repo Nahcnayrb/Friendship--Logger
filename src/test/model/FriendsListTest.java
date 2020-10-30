@@ -119,4 +119,22 @@ public class FriendsListTest {
         assertEquals(-1,f.getFriendIndex("Tom Cruise"));
 
     }
+
+    @Test
+    public void testToStringOne() {
+        f.addAFriend("Tom Cruise");
+
+        assertEquals("Tom Cruise", f.toString());
+
+    }
+
+    @Test
+    public void testToStringMany() {
+        f.addAFriend("Tom Cruise");
+        f.addAFriend("Chadwick Boseman");
+        f.addAFriend("Henry Cavill");
+
+        assertEquals("Tom Cruise, Chadwick Boseman, Henry Cavill", f.toString());
+
+    }
 }
