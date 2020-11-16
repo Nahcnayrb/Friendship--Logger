@@ -17,7 +17,8 @@
             "interests": [
                 {"interest": "runninglolxd"},
                 {"interest": "testing before i go to eat"},
-                {"interest": "league of legends"}
+                {"interest": "league of legends"},
+                {"interest": "sss"}
             ]
         },
         {
@@ -26,7 +27,7 @@
             "interests": [{"interest": "winning"}]
         },
         {
-            "birthday": "Unknown",
+            "birthday": "10/12",
             "name": "post malone",
             "interests": [{"interest": "beer"}]
         }
