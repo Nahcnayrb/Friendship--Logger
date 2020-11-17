@@ -1,35 +1,15 @@
 {
-    "userinterests": [
-        {"interest": "final"},
-        {"interest": "try"},
-        {"interest": "before"},
-        {"interest": "i"},
-        {"interest": "go"},
-        {"interest": "to"},
-        {"interest": "bed"},
-        {"interest": "league of legends"},
-        {"interest": "testing before i go to eat"}
-    ],
+    "userinterests": [],
     "friends": [
         {
-            "birthday": "12/10",
-            "name": "faker faker",
-            "interests": [
-                {"interest": "runninglolxd"},
-                {"interest": "testing before i go to eat"},
-                {"interest": "league of legends"},
-                {"interest": "sss"}
-            ]
+            "birthday": "Unknown",
+            "name": "ayyyyy",
+            "interests": []
         },
         {
-            "birthday": "01/01",
-            "name": "gg ez",
-            "interests": [{"interest": "winning"}]
-        },
-        {
-            "birthday": "10/12",
-            "name": "post malone",
-            "interests": [{"interest": "beer"}]
+            "birthday": "Unknown",
+            "name": "woo",
+            "interests": []
         }
     ],
     "username": "Bryan's friends list"
