@@ -124,7 +124,7 @@ public class FriendsListTest {
     public void testToStringOne() {
         f.addAFriend("Tom Cruise");
 
-        assertEquals("Tom Cruise", f.toString());
+        assertEquals("Tom Cruise\n", f.toString());
 
     }
 
@@ -134,7 +134,7 @@ public class FriendsListTest {
         f.addAFriend("Chadwick Boseman");
         f.addAFriend("Henry Cavill");
 
-        assertEquals("Tom Cruise, Chadwick Boseman, Henry Cavill", f.toString());
+        assertEquals("Tom Cruise\n" + "Chadwick Boseman\n" + "Henry Cavill\n", f.toString());
 
     }
 }

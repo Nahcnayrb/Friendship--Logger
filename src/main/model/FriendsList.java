@@ -95,15 +95,24 @@ public class FriendsList implements Writable {
         return friends;
     }
 
+//    //EFFECTS: returns the the list of friends in string form
+//    public String toString() {
+//        String result = "";
+//        for (int i = 0; i < getSize(); i++) {
+//            if (result.length() == 0) {
+//                result = friends.get(i).getName();
+//            } else {
+//                result += ", " + friends.get(i).getName();
+//            }
+//        }
+//        return result;
+//    }
+
     //EFFECTS: returns the the list of friends in string form
     public String toString() {
         String result = "";
         for (int i = 0; i < getSize(); i++) {
-            if (result.length() == 0) {
-                result = friends.get(i).getName();
-            } else {
-                result += ", " + friends.get(i).getName();
-            }
+            result += friends.get(i).getName() + "\n";
         }
         return result;
     }

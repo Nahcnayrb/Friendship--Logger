@@ -59,9 +59,9 @@ public class GUI implements ActionListener {
 
 
     JLabel viewFriendsListLabel = new JLabel();
+    JTextArea viewFriendsListTextArea = new JTextArea(20,40);
+    JScrollPane sp;
     JLabel friendNameLabel = new JLabel();
-
-    GridBagConstraints gbc = new GridBagConstraints();
     JTextField enterFriendName = new JTextField(10);
 
 
@@ -88,6 +88,7 @@ public class GUI implements ActionListener {
         addButtons();
         addListeners();
         addPanels();
+        setUpViewFriendsListDisplay();
 
         cl.show(panelCont, "1");
         mainFrame.add(panelCont);
@@ -115,7 +116,7 @@ public class GUI implements ActionListener {
     //MODIFIES: this
     //EFFECTS: change the layouts for panels viewMyFriendsViewFriendsListUI and editMyFriendsEditFriendsListUI
     private void setPanelLayouts() {
-        viewMyFriendsViewFriendsListUI.setLayout(new GridBagLayout());
+        viewMyFriendsViewFriendsListUI.setLayout(null);
         editMyFriendsEditFriendsListUI.setLayout(null);
 
     }
@@ -200,39 +201,40 @@ public class GUI implements ActionListener {
         editMyFriendsUI.add(return1);
         viewMyFriendsUI.add(return2);
         viewMyFriendsViewAFriendUI.add(return3);
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.gridwidth = 2;
-        gbc.weightx = 1;
-        gbc.weighty = 1;
 
-
-        gbc.anchor = GridBagConstraints.FIRST_LINE_START;
-
-
-        viewMyFriendsViewFriendsListUI.add(return4, gbc);
+        return4.setBounds(0,0,200,100);
+        viewMyFriendsViewFriendsListUI.add(return4);
 
         editMyFriendsEditAFriendUI.add(return6);
     }
 
     //MODIFIES: this
-    //Sets up the viewFriendsListLabel and add it to viewMyFriendsViewFriendsListUI panel
-    public void setUpViewFriendsListLabel() {
-        viewFriendsListLabel.setText("Friends currently in your friends list: " +  userFriends.toString());
+    //Sets up the components needed to display friends list for viewMyFriendsViewFriendsListUI panel
+    public void setUpViewFriendsListDisplay() {
+        viewFriendsListLabel.setText("Friends currently in your friends list:");
+        viewFriendsListLabel.setFont(new Font("Comic Sans", Font.BOLD,25));
+        viewFriendsListLabel.setBounds(180,160,500,40);
+        viewMyFriendsViewFriendsListUI.add(viewFriendsListLabel);
+        viewFriendsListTextArea.setText(userFriends.toString());
+        viewFriendsListTextArea.setFont(new Font("Comic Sans", Font.BOLD,20));
+        viewFriendsListTextArea.setBounds(150,200,500,300);
+        viewFriendsListTextArea.setEditable(false);
+        viewMyFriendsViewFriendsListUI.add(viewFriendsListTextArea);
+        sp = new JScrollPane(viewFriendsListTextArea,
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        sp.setBounds(150,200,500,300);
+
+        viewMyFriendsViewFriendsListUI.add(sp);
 
 
-        viewFriendsListLabel.setFont(new Font("Comic Sans", Font.PLAIN,20));
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        gbc.weightx = 1;
-        gbc.weighty = 1;
-        gbc.gridwidth = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.anchor = GridBagConstraints.CENTER;
-        viewMyFriendsViewFriendsListUI.add(viewFriendsListLabel,gbc);
 
+    }
 
-
+    //MODIFIES: this
+    //EFFECTS: updates the list of friends shown in the viewMyFriendsViewFriendsListUI panel
+    public void updateViewFriendsListDisplay() {
+        viewFriendsListTextArea.setText(userFriends.toString());
     }
 
 
@@ -276,7 +278,7 @@ public class GUI implements ActionListener {
             cl.show(panelCont, "5");
 
         } else if (e.getSource() == viewFriendsListButton) {
-            setUpViewFriendsListLabel();
+            updateViewFriendsListDisplay();
             cl.show(panelCont, "6");
 
         } else if (e.getSource() == editFriendsListButton) {
