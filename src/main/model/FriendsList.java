@@ -96,14 +96,7 @@ public class FriendsList  implements Writable, InformationList {
     }
 
 
-//    //EFFECTS: returns the the list of friends in string form
-//    public String toString() {
-//        String result = "";
-//        for (int i = 0; i < getSize(); i++) {
-//            result += friends.get(i).getName() + "\n";
-//        }
-//        return result;
-//    }
+
 
     @Override
     public JSONObject toJson() {
