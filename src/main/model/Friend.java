@@ -61,7 +61,7 @@ public class Friend implements Writable {
     //EFFECTS: returns a string with the friend's birthday and interests
     public String summary() {
         if (interests.getSize() > 0) {
-            return "Birthday: " + birthday + ", " + "Interests: " + interests.toString();
+            return "Birthday: " + birthday + ", " + "Interests: " + interests.display();
         } else {
             return "Birthday: " + birthday + ", " + "Interests: No known interests yet";
         }

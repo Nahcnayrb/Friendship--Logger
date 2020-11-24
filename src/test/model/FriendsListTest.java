@@ -121,20 +121,20 @@ public class FriendsListTest {
     }
 
     @Test
-    public void testToStringOne() {
+    public void testDisplayOne() {
         f.addAFriend("Tom Cruise");
 
-        assertEquals("Tom Cruise\n", f.toString());
+        assertEquals("Tom Cruise\n", f.display());
 
     }
 
     @Test
-    public void testToStringMany() {
+    public void testDisplayMany() {
         f.addAFriend("Tom Cruise");
         f.addAFriend("Chadwick Boseman");
         f.addAFriend("Henry Cavill");
 
-        assertEquals("Tom Cruise\n" + "Chadwick Boseman\n" + "Henry Cavill\n", f.toString());
+        assertEquals("Tom Cruise\n" + "Chadwick Boseman\n" + "Henry Cavill\n", f.display());
 
     }
 }

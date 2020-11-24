@@ -75,8 +75,8 @@ public class JsonWriterTest extends JsonTest{
             assertEquals("Johnny's friends list", fl.getName());
             List<Friend> friends = fl.getFriends();
             assertEquals(2, friends.size());
-            checkFriend("ethan", "10/10", friend1InterestList.toString(),2, fl.getFriends().get(0));
-            checkFriend("cody", "01/10", friend2InterestList.toString(),2, fl.getFriends().get(1));
+            checkFriend("ethan", "10/10", friend1InterestList.display(),2, fl.getFriends().get(0));
+            checkFriend("cody", "01/10", friend2InterestList.display(),2, fl.getFriends().get(1));
 
         } catch (IOException e) {
             fail("Exception should not have been thrown");

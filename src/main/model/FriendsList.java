@@ -12,7 +12,7 @@ import java.util.List;
 
 // Represents a list of friends which cannot contain any duplicates,
 // meaning two friends with identical names cannot be in the same friendsList.
-public class FriendsList implements Writable {
+public class FriendsList  implements Writable, InformationList {
     private List<Friend> friends;
     private String username;
     private InterestList userInterests;
@@ -96,14 +96,14 @@ public class FriendsList implements Writable {
     }
 
 
-    //EFFECTS: returns the the list of friends in string form
-    public String toString() {
-        String result = "";
-        for (int i = 0; i < getSize(); i++) {
-            result += friends.get(i).getName() + "\n";
-        }
-        return result;
-    }
+//    //EFFECTS: returns the the list of friends in string form
+//    public String toString() {
+//        String result = "";
+//        for (int i = 0; i < getSize(); i++) {
+//            result += friends.get(i).getName() + "\n";
+//        }
+//        return result;
+//    }
 
     @Override
     public JSONObject toJson() {
@@ -137,5 +137,13 @@ public class FriendsList implements Writable {
     }
 
 
-
+    //EFFECTS: returns the the list of friends in string form with each friend on a new line
+    @Override
+    public String display() {
+        String result = "";
+        for (int i = 0; i < getSize(); i++) {
+            result += friends.get(i).getName() + "\n";
+        }
+        return result;
+    }
 }

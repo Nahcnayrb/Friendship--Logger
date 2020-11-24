@@ -88,7 +88,7 @@ public class FriendshipLoggerApp {
         if (userFriends.getUserInterests().getSize() == 0) {
             System.out.println("You currently do not have any interests documented");
         } else {
-            System.out.println("Your Interests: " + userFriends.getUserInterests().toString());
+            System.out.println("Your Interests: " + userFriends.getUserInterests().display());
         }
     }
 
@@ -184,7 +184,7 @@ public class FriendshipLoggerApp {
         viewFriendsMenuSelectionDisplay();
         userinput = input.next();
         if (userinput.equals("1")) {
-            System.out.println("Friends currently in your friends list: " + userFriends.toString());
+            System.out.println("Friends currently in your friends list: " + userFriends.display());
         } else if (userinput.equals("2")) {
             viewAFriend();
         } else {
@@ -232,7 +232,7 @@ public class FriendshipLoggerApp {
                 System.out.println("There are no common interests between you and " + f.getName() + ".");
             } else {
                 System.out.println("Common Interests between you and " + f.getName() + ": "
-                        + f.getInterests().commonInterests(userFriends.getUserInterests()).toString());
+                        + f.getInterests().commonInterests(userFriends.getUserInterests()).display());
             }
         } else if (userinput.equals("2")) {
             System.out.println(f.summary());

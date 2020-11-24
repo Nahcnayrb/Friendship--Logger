@@ -34,3 +34,8 @@ helpful especially in situations where I'm planning for birthday gifts in advanc
  - I want to be able to save my Friends List(friend entries, friends' birthdays, friends' interests, user interests) 
  - I want to have the choice to load my previously saved Friends List and my Interests when I start the application
  
+ ## Phase 4: Task 2
+ 
+ For task 2, I have chosen to include a type hierarchy which the interface created is InformationList and the subclasses
+ of InformationList are FriendsList, and InterestList. The method display() plays a role in this hierarchy because it's specified in InformationList, and then 
+ was overridden in FriendsList and InterestList which each of these classes implement display() differently.   

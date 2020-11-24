@@ -105,18 +105,18 @@ public class InterestListTest {
     }
 
     @Test
-    public void testToStringOne() {
+    public void testDisplayOne() {
         in.insertInterest("League of Legends");
 
-        assertTrue(in.toString().equals("League of Legends"));
+        assertTrue(in.display().equals("League of Legends"));
     }
 
     @Test
-    public void testToStringMany() {
+    public void testDisplayMany() {
         in.insertInterest("League of Legends");
         in.insertInterest("Walking");
 
-        assertTrue(in.toString().equals("League of Legends, Walking"));
+        assertTrue(in.display().equals("League of Legends, Walking"));
     }
 
     @Test

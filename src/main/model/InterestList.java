@@ -1,16 +1,12 @@
 package model;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import persistence.Writable;
-
 import java.util.ArrayList;
 import java.util.List;
 
 //Represents a list of String where each string repesents an interest.
 //InterestList cannot store duplicates, meaning two interests with the same string cannot be in
 //the same InterestList.
-public class InterestList {
+public class InterestList implements InformationList {
     private List<Interest> listOfInterests;
 
     //EFFECTS: creates an empty interest list
@@ -63,9 +59,27 @@ public class InterestList {
         return listOfInterests.size();
     }
 
-    //REQUIRES: this interest list must not be empty
+//    //EFFECTS: returns a string of all interests in the interest list linked together by a ","
+//    public String toString() {
+//        String result = "";
+//        for (int i = 0; i < getSize(); i++) {
+//            if (result.length() == 0) {
+//                result = listOfInterests.get(i).getInterest();
+//            } else {
+//                result += ", " + listOfInterests.get(i).getInterest();
+//            }
+//        }
+//        return result;
+//    }
+
+    //EFFECTS: returns the interest list
+    public List<Interest> getListOfInterests() {
+        return listOfInterests;
+    }
+
     //EFFECTS: returns a string of all interests in the interest list linked together by a ","
-    public String toString() {
+    @Override
+    public String display() {
         String result = "";
         for (int i = 0; i < getSize(); i++) {
             if (result.length() == 0) {
@@ -76,10 +90,4 @@ public class InterestList {
         }
         return result;
     }
-
-    //EFFECTS: returns the interest list
-    public List<Interest> getListOfInterests() {
-        return listOfInterests;
-    }
-
 }

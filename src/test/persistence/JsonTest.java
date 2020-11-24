@@ -12,6 +12,6 @@ public class JsonTest {
         assertEquals(name, f.getName());
         assertEquals(bday, f.getBirthday());
         assertEquals(interestSize, f.getInterestsSize());
-        assertEquals(interests, f.getInterests().toString());
+        assertEquals(interests, f.getInterests().display());
     }
 }

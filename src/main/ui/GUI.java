@@ -215,7 +215,7 @@ public class GUI implements ActionListener {
         viewFriendsListLabel.setFont(new Font("Comic Sans", Font.BOLD,25));
         viewFriendsListLabel.setBounds(180,160,500,40);
         viewMyFriendsViewFriendsListUI.add(viewFriendsListLabel);
-        viewFriendsListTextArea.setText(userFriends.toString());
+        viewFriendsListTextArea.setText(userFriends.display());
         viewFriendsListTextArea.setFont(new Font("Comic Sans", Font.BOLD,20));
         viewFriendsListTextArea.setBounds(150,200,500,300);
         viewFriendsListTextArea.setEditable(false);
@@ -234,7 +234,7 @@ public class GUI implements ActionListener {
     //MODIFIES: this
     //EFFECTS: updates the list of friends shown in the viewMyFriendsViewFriendsListUI panel
     public void updateViewFriendsListDisplay() {
-        viewFriendsListTextArea.setText(userFriends.toString());
+        viewFriendsListTextArea.setText(userFriends.display());
     }
 
 
