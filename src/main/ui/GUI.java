@@ -74,7 +74,7 @@ public class GUI implements ActionListener {
 
 
     //MODIFIES: this
-    //EFFECTS: initializes the GUI
+    //EFFECTS: initializes the GUI and runs the Friendship Logger Application
     public GUI() {
         friendShipLoggerApp();
         panelCont.setLayout(cl);
@@ -122,7 +122,7 @@ public class GUI implements ActionListener {
     }
 
     //method written based on JsonSerializationDemo (https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo)
-    //EFFECTS: constructs userInterests and friends list and runs the Friendship Logger Application
+    //EFFECTS: constructs userInterests and friends list
     public void friendShipLoggerApp() {
         userInterests = new InterestList();
         userFriends = new FriendsList("Bryan's friends list", userInterests);

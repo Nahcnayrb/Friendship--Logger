@@ -38,4 +38,16 @@ helpful especially in situations where I'm planning for birthday gifts in advanc
  
  For task 2, I have chosen to include a type hierarchy which the interface created is InformationList and the subclasses
  of InformationList are FriendsList, and InterestList. The method display() plays a role in this hierarchy because it's specified in InformationList, and then 
- was overridden in FriendsList and InterestList which each of these classes implement display() differently.   
+ was overridden in FriendsList and InterestList which each of these classes implement display() differently.
+ 
+ 
+ ##Phase 4: Task 3
+ 
+- I would refactor AddFriendResultFrame and RemoveFriendResultFrame such that I would create an abstract class called 
+EditFriendResultFrame
+- In the constructor of EditFriendResultFrame, it would contain the duplicated code in the constructor of 
+AddFriendResultFrame and RemoveFriendResultFrame which is essentially everything except the print statements.
+
+- I would refactor more methods in FriendsList and InterestList into their implemented interface, InformationList because 
+there are still a lot of methods that the two subclasses share like getSize().
+    
