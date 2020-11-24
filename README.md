@@ -49,5 +49,5 @@ EditFriendResultFrame
 AddFriendResultFrame and RemoveFriendResultFrame which is essentially everything except the print statements.
 
 - I would refactor more methods in FriendsList and InterestList into their implemented interface, InformationList because 
-there are still a lot of methods that the two subclasses share like getSize().
+there are still lots of methods that the two subclasses share like getSize().
     
